@@ -34,7 +34,7 @@ export interface CheckOutput {
   engines_run: EngineId[];
   engines_skipped: { engine: EngineId; reason: string }[];
   results: QuestionResult[];
-  summary: { engine: EngineId; named_in: number; asked: number; website_cited_in: number }[];
+  summary: { engine: EngineId; named_in: number; asked: number; website_cited_in: number; errors: number }[];
   estimated_total_cost_usd: number;
   note: string;
 }
@@ -131,6 +131,7 @@ export async function runCheck(input: CheckInput, env: NodeJS.ProcessEnv = proce
     const rs = results.filter((r) => r.engine === e && !r.error);
     return {
       engine: e,
+      errors: results.filter((r) => r.engine === e && r.error).length,
       named_in: rs.filter((r) => r.named).length,
       asked: rs.length,
       website_cited_in: rs.filter((r) => r.website_cited).length,
@@ -158,7 +159,12 @@ export function formatReport(o: CheckOutput): string {
     lines.push("No engines ran. Set at least one of OPENAI_API_KEY, PERPLEXITY_API_KEY or GEMINI_API_KEY in this server's env config.");
   }
   for (const s of o.summary) {
-    lines.push(`- ${ENGINES[s.engine].label}: named in ${s.named_in} of ${s.asked} answers, website cited in ${s.website_cited_in}`);
+    const failed = s.errors ? `, ${s.errors} failed (see below)` : "";
+    lines.push(
+      s.asked
+        ? `- ${ENGINES[s.engine].label}: named in ${s.named_in} of ${s.asked} answers, website cited in ${s.website_cited_in}${failed}`
+        : `- ${ENGINES[s.engine].label}: every request failed (see below)`,
+    );
   }
   for (const s of o.engines_skipped) lines.push(`- ${ENGINES[s.engine].label}: skipped (${s.reason})`);
   lines.push("");
