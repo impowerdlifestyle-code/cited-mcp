@@ -110,6 +110,10 @@ function looksLikeName(s: string): boolean {
   if (!s || words.length > 7 || s.length > 60) return false;
   if (!/^[A-Z0-9]/.test(s)) return false;
   if (/^(note|tip|tips|why|how|what|summary|pros|cons|cost|price|pricing|location|address|phone|hours|rating|reviews?|website|services|specialt(y|ies)|best for|highlights?|key features?)$/i.test(s)) return false;
+  // Labels like "Best for a strategy-first setup" or "Good if you need X" describe a pick, they are not a business.
+  if (/^(best|good|great|ideal|top|also)\s+(for|if|when|pick|choice)\b/i.test(s)) return false;
+  // Rating fragments like "0 Google rating" or "4.8 stars (120 reviews)".
+  if (/\d/.test(s) && /\b(ratings?|reviews?|stars?)\b/i.test(s)) return false;
   return true;
 }
 

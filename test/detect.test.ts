@@ -56,3 +56,16 @@ describe("lists", () => {
     expect(competitorsNamed(t, "Beta, LLC")).toEqual(["Alpha Co", "Gamma Dental", "Delta Dentistry"]);
   });
 });
+
+describe("competitorsNamed ignores labels and rating fragments", () => {
+  it("drops 'Best for' labels and rating counts but keeps real names", () => {
+    const text = [
+      "1. **Voreli AI** - St. Petersburg agency",
+      "2. **Fishhook Marketing** - Tampa",
+      "3. **Best for a strategy-first small-business setup**",
+      "4. **0 Google rating**",
+      "5. **GO Agency AI**",
+    ].join("\n");
+    expect(competitorsNamed(text, "Voreli AI", "voreli.ai")).toEqual(["Fishhook Marketing", "GO Agency AI"]);
+  });
+});
