@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" rx="72" fill="#0b1422"/>
+  <circle cx="200" cy="150" r="58" fill="none" stroke="#14b8a6" stroke-width="14"/>
+  <path d="M172 150 l20 20 l38 -40" fill="none" stroke="#d4a040" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="200" y="285" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="76" font-weight="700" fill="#e8e4d8">Cited</text>
+  <text x="200" y="330" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#8ba0bd">AI visibility check</text>
+</svg>

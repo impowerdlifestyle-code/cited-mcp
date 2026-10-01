@@ -1,0 +1,23 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          { "text": "Several dentists in Tampa get consistently good reviews:\n\n* **Westshore Dental Group** offers same-day crowns.\n* **Sunshine Dental and Implants** is popular with families.\n* **Bayshore Smiles** focuses on cosmetic work.\n" }
+        ]
+      },
+      "finishReason": "STOP",
+      "groundingMetadata": {
+        "webSearchQueries": ["best dentist Tampa"],
+        "groundingChunks": [
+          { "web": { "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AAA", "title": "sunshinedental.com" } },
+          { "web": { "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/BBB", "title": "yelp.com" } },
+          { "web": { "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/CCC", "title": "Best dentists list" } }
+        ]
+      }
+    }
+  ],
+  "usageMetadata": { "promptTokenCount": 10, "candidatesTokenCount": 120, "thoughtsTokenCount": 0, "totalTokenCount": 130 },
+  "modelVersion": "gemini-2.5-flash-lite"
+}

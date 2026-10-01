@@ -1,0 +1,25 @@
+{
+  "id": "pplx_fixture",
+  "model": "sonar",
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "Top options for a dentist in Tampa include:\n\n- **Harbor Family Dentistry**: strong reviews for pediatric care[1].\n- **Bayshore Smiles**: cosmetic focus[2].\n- **Westshore Dental Group**: accepts most PPO plans[3].\n\nYelp and Google Maps list many more[1][3]."
+      }
+    }
+  ],
+  "citations": [
+    "https://www.yelp.com/search?find_desc=dentist&find_loc=Tampa",
+    "https://bayshoresmiles.com/",
+    "https://www.healthgrades.com/dentistry/tampa-fl"
+  ],
+  "search_results": [
+    { "title": "Best Dentists in Tampa", "url": "https://www.yelp.com/search?find_desc=dentist&find_loc=Tampa" },
+    { "title": "Bayshore Smiles", "url": "https://bayshoresmiles.com/" }
+  ],
+  "usage": { "prompt_tokens": 12, "completion_tokens": 90, "total_tokens": 102, "search_context_size": "low", "cost": { "input_tokens_cost": 0.0, "output_tokens_cost": 0.0001, "request_cost": 0.005, "total_cost": 0.0051 } }
+}

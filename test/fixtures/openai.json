@@ -1,0 +1,26 @@
+{
+  "id": "resp_fixture",
+  "object": "response",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "output": [
+    { "type": "reasoning", "id": "rs_1", "summary": [] },
+    { "type": "web_search_call", "id": "ws_1", "status": "completed", "action": { "type": "search", "query": "best dentist Tampa FL" } },
+    {
+      "type": "message",
+      "id": "msg_1",
+      "role": "assistant",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "Here are some well-reviewed dentists in Tampa:\n\n1. **Bayshore Smiles** - general and cosmetic dentistry in South Tampa. ([bayshoresmiles.com](https://www.bayshoresmiles.com/?utm_source=openai))\n2. **Sunshine Dental & Implants, LLC** - family practice near Westshore. ([yelp.com](https://www.yelp.com/biz/sunshine-dental-tampa?utm_source=openai))\n3. **Harbor Family Dentistry** - known for gentle care with kids.\n\nCheck Google reviews and your insurance network before booking.",
+          "annotations": [
+            { "type": "url_citation", "start_index": 120, "end_index": 180, "url": "https://www.bayshoresmiles.com/?utm_source=openai", "title": "Bayshore Smiles" },
+            { "type": "url_citation", "start_index": 260, "end_index": 330, "url": "https://www.yelp.com/biz/sunshine-dental-tampa?utm_source=openai", "title": "Sunshine Dental - Yelp" },
+            { "type": "url_citation", "start_index": 340, "end_index": 350, "url": "https://sunshinedental.com/services", "title": "Services" }
+          ]
+        }
+      ]
+    }
+  ],
+  "usage": { "input_tokens": 8000, "output_tokens": 400, "total_tokens": 8400 }
+}

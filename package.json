@@ -1,0 +1,58 @@
+{
+  "name": "cited-mcp",
+  "version": "0.1.0",
+  "description": "MCP server: check whether ChatGPT, Perplexity and Gemini recommend a business. By Cited (cited.voreli.ai)",
+  "mcpName": "io.github.impowerdlifestyle-code/cited-mcp",
+  "type": "module",
+  "bin": {
+    "cited-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && chmod +x dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "smoke": "node scripts/smoke.mjs",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "ai-search",
+    "aeo",
+    "geo",
+    "seo",
+    "chatgpt",
+    "perplexity",
+    "gemini",
+    "ai-visibility"
+  ],
+  "homepage": "https://cited.voreli.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/impowerdlifestyle-code/cited-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/impowerdlifestyle-code/cited-mcp/issues"
+  },
+  "author": "Voreli AI (https://www.voreli.ai)",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.31.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}

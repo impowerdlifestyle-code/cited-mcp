@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.impowerdlifestyle-code/cited-mcp",
+  "title": "Cited AI Visibility Check",
+  "description": "Check whether ChatGPT, Perplexity and Gemini recommend a business. By Cited (cited.voreli.ai)",
+  "websiteUrl": "https://cited.voreli.ai",
+  "repository": { "url": "https://github.com/impowerdlifestyle-code/cited-mcp", "source": "github" },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "cited-mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "OPENAI_API_KEY", "description": "OpenAI key for ChatGPT-style answers with web search", "isRequired": false, "isSecret": true, "format": "string" },
+        { "name": "PERPLEXITY_API_KEY", "description": "Perplexity key for Sonar answers", "isRequired": false, "isSecret": true, "format": "string" },
+        { "name": "GEMINI_API_KEY", "description": "Google AI Studio key for Gemini with Google Search grounding", "isRequired": false, "isSecret": true, "format": "string" }
+      ]
+    }
+  ]
+}
