@@ -137,7 +137,7 @@ export const ENGINES: Record<EngineId, EngineDef> = {
     label: "Gemini",
     envKey: "GEMINI_API_KEY",
     modelEnv: "GEMINI_MODEL",
-    defaultModel: "gemini-2.5-flash-lite",
+    defaultModel: "gemini-3.5-flash-lite",
     async ask(question, apiKey, model) {
       const d = await postJson(
         `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,

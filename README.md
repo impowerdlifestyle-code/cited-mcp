@@ -92,7 +92,7 @@ Any other MCP client works the same way: run `npx -y cited-mcp` over stdio with 
 |---|---|---|
 | `OPENAI_API_KEY` | ChatGPT via the OpenAI Responses API with the `web_search` tool | `gpt-5.4-mini` (override with `OPENAI_MODEL`) |
 | `PERPLEXITY_API_KEY` | Perplexity Sonar (search is built in) | `sonar` (override with `PERPLEXITY_MODEL`) |
-| `GEMINI_API_KEY` | Gemini with Grounding with Google Search | `gemini-2.5-flash-lite` (override with `GEMINI_MODEL`) |
+| `GEMINI_API_KEY` | Gemini with Grounding with Google Search | `gemini-3.5-flash-lite` (override with `GEMINI_MODEL`) |
 
 The API versions of these engines are close to, but not the same as, the consumer apps. ChatGPT, Perplexity and Gemini in the browser can use different models, personalization and location signals.
 
@@ -133,7 +133,7 @@ There is no Cited fee and no account. Each question is one API call per engine, 
 |---|---|
 | OpenAI `gpt-5.4-mini` | $10 per 1,000 web search calls, plus tokens at $0.75 per 1M input and $4.50 per 1M output. Search results count as input tokens. |
 | Perplexity `sonar` | $5 per 1,000 requests (low search context), plus tokens at $1 per 1M. Perplexity reports the exact cost and the tool uses it. |
-| Gemini `gemini-2.5-flash-lite` | Tokens at $0.10 per 1M input and $0.40 per 1M output. Google lists 1,500 grounded prompts per day free on the paid tier, then $35 per 1,000. |
+| Gemini `gemini-3.5-flash-lite` | See Google's current Gemini API pricing (https://ai.google.dev/gemini-api/docs/pricing). The cost estimate shows $0 for models without a built-in price; check your Google billing for the real figure. |
 
 In practice that is a few cents or less per question per engine, so a default check (5 questions on 3 engines, 15 calls) should land well under a dollar. Every result includes an estimate computed from the token counts the provider returned. It does not include Gemini grounding fees past the free daily allowance. Check your provider dashboard for the exact charge. Prices change; see [OpenAI](https://developers.openai.com/api/docs/pricing), [Perplexity](https://docs.perplexity.ai/getting-started/pricing) and [Gemini](https://ai.google.dev/gemini-api/docs/pricing).
 
