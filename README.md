@@ -137,6 +137,14 @@ There is no Cited fee and no account. Each question is one API call per engine, 
 
 In practice that is a few cents or less per question per engine, so a default check (5 questions on 3 engines, 15 calls) should land well under a dollar. Every result includes an estimate computed from the token counts the provider returned. It does not include Gemini grounding fees past the free daily allowance. Check your provider dashboard for the exact charge. Prices change; see [OpenAI](https://developers.openai.com/api/docs/pricing), [Perplexity](https://docs.perplexity.ai/getting-started/pricing) and [Gemini](https://ai.google.dev/gemini-api/docs/pricing).
 
+### Run one live check
+
+```bash
+PERPLEXITY_API_KEY=your-key npm run live
+```
+
+Uses whichever of `OPENAI_API_KEY`, `PERPLEXITY_API_KEY` and `GEMINI_API_KEY` are set. Override the target with `BUSINESS`, `WEBSITE`, `LOCATION` and `QUESTION`. A single check costs a few cents.
+
 ## Limitations
 
 - **Answers vary from run to run.** In our [Tampa Bay AI Search Study 2026](https://www.voreli.ai/research/tampa-bay-ai-search-2026), we asked ChatGPT the same 12 questions twice. On average the two answers shared 11% of the businesses they named, and on 6 of the 12 questions they shared none. One check is a snapshot. Trends need repeated checks over time.
