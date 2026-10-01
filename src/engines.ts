@@ -25,7 +25,7 @@ async function postJson(url: string, body: unknown, headers: Record<string, stri
     signal: AbortSignal.timeout(TIMEOUT_MS),
   });
   const raw = await res.text();
-  if (!res.ok) throw new Error(`HTTP ${res.status}: ${raw.slice(0, 300)}`);
+  if (!res.ok) throw new Error(`HTTP ${res.status}: ${providerMessage(raw)}`);
   return JSON.parse(raw);
 }
 
@@ -150,3 +150,13 @@ export const ENGINES: Record<EngineId, EngineDef> = {
 };
 
 export const ENGINE_IDS = Object.keys(ENGINES) as EngineId[];
+
+// Providers wrap errors as {"error":{"message":...}} or {"error":"..."}; fall back to the raw body.
+export function providerMessage(raw: string): string {
+  try {
+    const body = JSON.parse(raw) as { error?: { message?: string } | string; message?: string };
+    const msg = typeof body.error === "string" ? body.error : body.error?.message ?? body.message;
+    if (msg) return msg;
+  } catch {}
+  return raw.replace(/\s+/g, " ").slice(0, 300);
+}
