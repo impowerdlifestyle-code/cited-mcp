@@ -157,6 +157,11 @@ Uses whichever of `OPENAI_API_KEY`, `PERPLEXITY_API_KEY` and `GEMINI_API_KEY` ar
 
 This server answers "are we named today?". [Cited](https://cited.voreli.ai) runs the same questions every week across engines, stores the history, and shows which competitors and sources are winning so you can see whether your work is moving the number.
 
+## Related free tools
+
+- [llms.txt Generator and Checker](https://www.voreli.ai/tools/llms-txt-generator): validate a site's `/llms.txt` against the llmstxt.org spec, or draft one from its sitemap.
+- [Tampa Bay AI Search Study 2026](https://www.voreli.ai/research/tampa-bay-ai-search-2026): the open dataset behind the variance numbers above.
+
 ## Development
 
 ```bash
